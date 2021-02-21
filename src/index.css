@@ -1,13 +1,89 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+   box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+   background-color: #1E1E24;
+   color: white;
+   display: flex;
+   flex-direction: column;
+   font-family: 'Poppins', sans-serif;
+   margin: 0;
+}
+
+header {
+   background-color: #353B45;
+   padding: 1rem;
+}
+
+.headline {
+   display: flex;
+   justify-content: center;
+   margin-top: 20px;
+}
+
+.container {
+   display: flex;
+   justify-content: flex-end;
+}
+
+.movie-container1 {
+   display: flex;
+   flex-wrap: wrap;
+   margin: 10px 280px 100px;
+   justify-content: center;
+}
+
+.movie {
+   background-color: #353B45;
+   margin: .7rem;
+   width: 150px;
+   border-radius: 8px;
+   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+   overflow: hidden;
+   position: relative;
+}
+
+.movie img {
+   max-width: 100%;
+}
+
+.movie-info {
+   display: flex;
+   padding: .5rem;
+   /* align-items: center; */
+   justify-content: space-between;
+}
+
+.movie-info h3 {
+   margin: 0;
+   font-size: .8rem;
+   font-weight: lighter;
+}
+
+.movie-info span {
+   font-size: .9rem;
+}
+
+.movie-over {
+   background-color: #fff;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+   position: absolute;
+   padding: .4rem;
+   font-size: .8rem;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   overflow: auto;
+   max-height: 100%;
+   color: #1E1E24;
+   transform: translateX(-101%);
+   transition: transform .3s ease-in-out;
+}
+
+.movie:hover .movie-over {
+   transform: translateX(0%);
 }
