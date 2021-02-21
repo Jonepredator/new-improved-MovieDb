@@ -18,21 +18,43 @@ header {
    padding: 1rem;
 }
 
+.container {
+   display: flex;
+   justify-content: flex-end;
+}
+
+.search {
+   font-family: inherit;
+   border: 2px solid orange;
+   font-size: 1.1;
+   border-radius: 20px;
+   padding: .4rem 1.2rem;
+   color: #1E1E24;
+   background-color: whitesmoke;
+}
+
+.search:focus {
+   outline: none;
+   list-style: none;
+}
+
 .headline {
    display: flex;
    justify-content: center;
    margin-top: 20px;
 }
 
-.container {
-   display: flex;
-   justify-content: flex-end;
-}
-
 .movie-container1 {
    display: flex;
    flex-wrap: wrap;
    margin: 10px 280px 100px;
+   justify-content: center;
+}
+
+.movie-container2 {
+   display: flex;
+   flex-wrap: wrap;
+   margin: 100px 280px;
    justify-content: center;
 }
 
@@ -86,4 +108,7 @@ header {
 
 .movie:hover .movie-over {
    transform: translateX(0%);
+}
+.movie-over p {
+
 }
