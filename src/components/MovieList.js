@@ -10,6 +10,8 @@ const MovieList = (props) => {
                return (
                   <MovieCard
                      key={i}
+                     viewMovieInfo={props.viewMovieInfo}
+                     movieId={movie.Id}
                      image={movie.poster_path} />
                );
             })
