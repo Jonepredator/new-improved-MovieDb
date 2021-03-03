@@ -1,17 +1,17 @@
 import React from 'react';
-import MovieCard from './MovieCard';
+import Movie from './Movie';
 
 const MovieList = (props) => {
    return (
       <div className='movie-container1'>
          {
             // props.movies.length > 0 && props.movies.slice(0, 12).map((movie, i) => {
-            props.movies.map((movie, i) => {
+            props.movies.map((movie) => {
                return (
-                  <MovieCard
-                     key={i}
+                  <Movie
+                     key={movie.id}
                      viewMovieInfo={props.viewMovieInfo}
-                     movieId={movie.Id}
+                     movieId={movie.id}
                      image={movie.poster_path} />
                );
             })

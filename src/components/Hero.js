@@ -20,7 +20,7 @@ class Hero extends Component {
 
    handleSubmit = (e) => {
       e.preventDefault();
-      fetch(`https://api.themoviedb.org/3/search/movie?&api_key=${this.apiKey}&query=${this.state.searchTerm}`)
+      fetch(`https://api.themoviedb.org/3/search/movie?&api_key=${this.apiKey}&query=${this.state.searchTerm}&language=en-US&page=${this.state.currentPage}`)
          .then(data => data.json())
          .then(data => {
             console.log(data);
@@ -38,15 +38,18 @@ class Hero extends Component {
          .then(data => data.json())
          .then(data => {
             console.log(data);
-            this.setState({ movies: [...data.results], currentPage: pageNumber });
+            this.setState({ movies: [...data.results], totalResults: data.total_results, currentPage: pageNumber });
 
          });
    };
 
    viewMovieInfo = (id) => {
-      const filteredMovie = this.state.movies.filter(movie => movie.id == id);
-
-      const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null;
+      let filteredMovie;
+      this.state.movies.forEach((movie, i) => {
+         if (movie.id === id) {
+            filteredMovie = movie;
+         }
+      });
 
       this.setState({ currentMovie: filteredMovie });
    };
@@ -60,19 +63,21 @@ class Hero extends Component {
 
       return (
          <div className="Hero">
-            {this.state.currentMovie == null ?
-               <div>
-                  <SearchArea
-                     handleSubmit={this.handleSubmit}
-                     handleChange={this.handleChange}
-                  />
-                  <MovieList
-                     viewMovieInfo={this.viewMovieInfo}
-                     movies={this.state.movies}
-                  />
-               </div>
-               :
-               <MovieInfo currentMovie={this.state.currentMovie} closeMovieInfo={this.closeMovieInfo} />
+
+            {
+               this.state.currentMovie == null ?
+                  <div>
+                     <SearchArea
+                        handleSubmit={this.handleSubmit}
+                        handleChange={this.handleChange}
+                     />
+                     <MovieList
+                        viewMovieInfo={this.viewMovieInfo}
+                        movies={this.state.movies}
+                     />
+                  </div>
+                  :
+                  <MovieInfo currentMovie={this.state.currentMovie} closeMovieInfo={this.closeMovieInfo} />
             }
 
             { this.state.totalResults > 20 ? <Pagination pages={numberPages} nextPage={this.nextPage} currentPage={this.state.currentPage} /> : ''}

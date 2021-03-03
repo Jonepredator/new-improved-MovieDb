@@ -28,18 +28,18 @@ header {
    display: flex;
    justify-content: center;
    height: 60px;
-   margin-top: 80px;
-   background-color: #353B45;
+   margin: 0 280px 0;
+   /* background-color: #353B45; */
    padding: 10px 0 15px;
    width: 100vw;
 }
 
 .container h2 {
-   margin: 0;
+   margin: 0 0 0 .7rem;
    font-family: inherit;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
    font-weight: 400;
-   padding: 0 1.2rem;
+   padding: 0 1.2rem 0 0;
    color: #fff;
 }
 
@@ -68,16 +68,16 @@ header {
 .movie-container1 {
    display: flex;
    flex-wrap: wrap;
-   margin: 10px 280px 30px;
-   justify-content: center;
+   margin: 0px 280px 0px;
+   justify-content: space-between;
 }
 
-.movie-container2 {
+/* .movie-container2 {
    display: flex;
    flex-wrap: wrap;
    margin: 100px 280px;
    justify-content: center;
-}
+} */
 
 .movie {
    background-color: #353B45;
@@ -138,11 +138,11 @@ header {
 }
 
 .page-container {
-   background-color: red;
+   background-color: #353B45;
    display: flex;
    flex-direction: row;
    justify-content: center;
-   height: 100px;
+   height: 60px;
    
 }
 
@@ -157,6 +157,7 @@ header {
    white-space: nowrap;
    width: 100%;
    padding: 0;
+   margin: 0;
    
 }
 
@@ -171,4 +172,14 @@ header {
    color: white;
    font-size: 2.5rem;
    text-decoration: none;
+}
+
+.movie-info {
+   display: flex;
+   flex-direction: column;
+
+}
+.backdrop {
+   display: flex;
+   justify-content: center;
 }

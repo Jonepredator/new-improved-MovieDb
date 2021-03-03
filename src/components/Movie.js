@@ -1,20 +1,20 @@
 import React from 'react';
 
-const posterURL = 'https://image.tmdb.org/t/p/w1280/';
-
-const Movie = ({ title, poster_path, overview, vote_average }) => (
-   <div className='movie'>
-      <img src={posterURL + poster_path} alt={title} />
-      <div className='movie-info'>
-         <h3>{title}</h3>
-         <span>{vote_average}</span>
+const Movie = ({ image, viewMovieInfo, movieId }) => {
+   return (
+      <div className='movie'>
+         <div>
+            {
+               image == null ? <img src={`https://www.calgaryhumane.ca/wp-content/uploads/2018/02/Coming-soon.jpg`} alt='card image' /> : <img src={`https://image.tmdb.org/t/p/w1280${image}`} alt='card image' />
+            }
+         </div>
+         <div className='movie-info'>
+            <p>
+               <a href="#" onClick={() => viewMovieInfo(movieId)} >View more</a>
+            </p>
+         </div>
       </div>
-
-      <div className='movie-over'>
-         <h2>Overview:</h2>
-         <p>{overview}</p>
-      </div>
-   </div>
-);
+   );
+};
 
 export default Movie;
